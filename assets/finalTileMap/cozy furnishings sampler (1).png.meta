@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "2713b90d-dfec-44dd-a8b4-050fe19c43c7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 240,
+  "height": 80,
+  "platformSettings": {},
+  "subMetas": {
+    "cozy furnishings sampler (1)": {
+      "ver": "1.0.6",
+      "uuid": "55d9b99a-6eb6-4343-b7cb-e7a8f29599f3",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "2713b90d-dfec-44dd-a8b4-050fe19c43c7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 239,
+      "height": 80,
+      "rawWidth": 240,
+      "rawHeight": 80,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

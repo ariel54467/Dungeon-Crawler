@@ -1,0 +1,71 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "axe_hurt_left",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 1,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "Weapon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "cd8e2182-0660-491d-9cfd-7b18f9034189"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "6f979362-77c9-4f30-817f-ee6dde82c09d"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Clothes": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "6af119bb-7e03-47b4-9a19-9f644f76cf8e"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Hair": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "20abf14f-c7e8-49f0-9027-3bbdcf6fe196"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

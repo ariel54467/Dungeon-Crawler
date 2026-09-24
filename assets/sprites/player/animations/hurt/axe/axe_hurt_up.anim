@@ -1,0 +1,71 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "axe_hurt_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.016666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "Body/Clothes": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "881b471f-73d4-48bf-a4fc-c30c0036d539"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Hair": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "46acc6cc-747f-4cc6-be9d-2d5475419567"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "3d62e582-ba1c-4757-bb86-093e86be62ae"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Weapon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "85d06ed0-1918-4ac0-8984-e521bf7a2fb1"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

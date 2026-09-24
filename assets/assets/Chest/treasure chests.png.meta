@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "3d187782-2b5b-434a-b6bf-4d1482bbc072",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 160,
+  "height": 192,
+  "platformSettings": {},
+  "subMetas": {
+    "treasure chests": {
+      "ver": "1.0.6",
+      "uuid": "926dde5c-1fef-4691-ac25-a2a8fdcaacbb",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "3d187782-2b5b-434a-b6bf-4d1482bbc072",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -2.5,
+      "trimX": 6,
+      "trimY": 9,
+      "width": 148,
+      "height": 179,
+      "rawWidth": 160,
+      "rawHeight": 192,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "sword_hurt_left",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.016666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "Weapon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "63c86e04-55ab-496f-96af-8f786e23d89f"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "6f979362-77c9-4f30-817f-ee6dde82c09d"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Clothes": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "6af119bb-7e03-47b4-9a19-9f644f76cf8e"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Hair": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "20abf14f-c7e8-49f0-9027-3bbdcf6fe196"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,143 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "sword_attack_left",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 4,
+  "speed": 2,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "Body/Clothes": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "05de4c05-71ba-48a8-af71-1ee11ac7880d"
+                }
+              },
+              {
+                "frame": 0.25,
+                "value": {
+                  "__uuid__": "dc2fdf10-8d82-4362-8f7d-7abc861b15d1"
+                }
+              },
+              {
+                "frame": 0.5,
+                "value": {
+                  "__uuid__": "ed6479f8-1a5c-40b5-ab75-3c6413f945ec"
+                }
+              },
+              {
+                "frame": 0.75,
+                "value": {
+                  "__uuid__": "546ae9e8-fa66-4d91-a236-23c354cfef20"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Hair": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "5dc82892-0e53-418c-930b-7aa2a087c902"
+                }
+              },
+              {
+                "frame": 0.25,
+                "value": {
+                  "__uuid__": "5b396195-63de-4659-a5ad-c43c00f4d408"
+                }
+              },
+              {
+                "frame": 0.5,
+                "value": {
+                  "__uuid__": "30799868-cddd-4a73-b266-8c1ef0739f6c"
+                }
+              },
+              {
+                "frame": 0.75,
+                "value": {
+                  "__uuid__": "e7e7abaf-3c20-4392-ab68-a36a5a973e6c"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "4583e4d8-4e21-4d79-ab1d-41b3d3bd6880"
+                }
+              },
+              {
+                "frame": 0.25,
+                "value": {
+                  "__uuid__": "e70fd857-ac1a-4b08-92af-f5e949cda0c7"
+                }
+              },
+              {
+                "frame": 0.5,
+                "value": {
+                  "__uuid__": "8941c6af-b23c-4583-8c45-27ee334fade5"
+                }
+              },
+              {
+                "frame": 0.75,
+                "value": {
+                  "__uuid__": "5511cdd9-96bf-4731-af7d-85fe2dd89034"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Weapon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "862bf7e3-2897-4495-a652-ee1f3345d48a"
+                }
+              },
+              {
+                "frame": 0.25,
+                "value": {
+                  "__uuid__": "eb3e11f8-f69e-4887-9405-8f31053d583a"
+                }
+              },
+              {
+                "frame": 0.5,
+                "value": {
+                  "__uuid__": "20eab329-857b-45ab-97a9-b5ef8025635f"
+                }
+              },
+              {
+                "frame": 0.75,
+                "value": {
+                  "__uuid__": "7fb0f400-ff0c-45f7-b125-a654fdd63868"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

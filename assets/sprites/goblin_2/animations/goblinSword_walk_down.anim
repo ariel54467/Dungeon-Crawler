@@ -1,0 +1,37 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "goblinSword_walk_down",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 3,
+  "speed": 2,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "a94e8abe-38b4-473b-a2c3-0f7f12f7bccd"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "6bd17bc6-e4e0-4706-95c2-e23a8c360b6c"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "b23575d7-51c5-43f7-b865-7f5deccc0235"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

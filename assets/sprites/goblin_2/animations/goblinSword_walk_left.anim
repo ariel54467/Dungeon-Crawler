@@ -1,0 +1,37 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "goblinSword_walk_left",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 3,
+  "speed": 2,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "98b5bd0c-1797-47cc-a1a4-b0b0ca4978f7"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "889f4047-8001-4547-8a63-69c166bf0f79"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "ced4089d-79ae-4fb6-858b-c493471b9eb3"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

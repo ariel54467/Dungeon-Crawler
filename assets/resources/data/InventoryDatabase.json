@@ -1,0 +1,58 @@
+{
+  "sword": {
+    "id": 1,
+    "name": "sword",
+    "type": "weapon",
+    "icon": "Inventory/sword",
+    "level": "lvl_1",
+    "locked": false
+  },
+  "heal_potion": {
+    "id": 2,
+    "name": "heal_potion",
+    "type": "consumable",
+    "icon": "Inventory/heal_potion",
+    "level": "lvl_1",
+    "locked": false
+  },
+  "axe": {
+    "id": 3,
+    "name": "axe",
+    "type": "weapon",
+    "icon": "Inventory/axe",
+    "level": "lvl_1",
+    "locked": false
+  },
+  "armor": {
+    "id": 4,
+    "name": "armor",
+    "type": "armor",
+    "icon": "Inventory/heal_potion",
+    "level": "lvl_1",
+    "locked": true
+  },
+  "spear": {
+    "id": 5,
+    "name": "spear",
+    "type": "weapon",
+    "icon":"Inventory/spear",
+    "level": "lvl_1",
+    "locked": true
+  },
+  "def_potion": {
+    "id": 6,
+    "name": "def_potion",
+    "type": "consumable",
+    "icon": "Inventory/def_potion",
+    "level": "lvl_1",
+    "locked": false
+  },
+  "inv_potion": {
+    "id": 7,
+    "name": "inv_potion",
+    "type": "consumable",
+    "icon": "Inventory/inv_potion",
+    "level": "lvl_1",
+    "locked": false
+  }
+}

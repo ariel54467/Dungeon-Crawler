@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "goblin_walk_right",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 4,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "25da0901-5c25-420c-a5c7-5399e387fc70"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "658bc9e4-1646-47fd-8849-6af9713b0f9c"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "96edad42-e885-4c1e-b8c5-abe06295e86f"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "658bc9e4-1646-47fd-8849-6af9713b0f9c"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "4ef677fd-364c-4f17-af82-5d3c9f28b62a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 233,
+  "height": 205,
+  "platformSettings": {},
+  "subMetas": {
+    "ReaperEnemy": {
+      "ver": "1.0.6",
+      "uuid": "7fb61727-a998-44f2-901c-079dc5518f53",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "4ef677fd-364c-4f17-af82-5d3c9f28b62a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": 0,
+      "trimX": 3,
+      "trimY": 2,
+      "width": 229,
+      "height": 201,
+      "rawWidth": 233,
+      "rawHeight": 205,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

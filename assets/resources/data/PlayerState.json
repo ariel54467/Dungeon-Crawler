@@ -1,0 +1,17 @@
+{
+  "maxhp": 100,
+  "hp": 100,
+  "exp": 0,
+  "level": 1,
+  "money": 250,
+  "xpPoint": 0,
+  "items": [
+    { "name": "heal_potion", "quantity": 3 },
+    { "name": "def_potion", "quantity": 1 },
+    { "name": "inv_potion", "quantity": 1 }
+  ],
+  "healthskill": 1,
+  "speedskill": 1,
+  "weaponmastery": 1,
+  "upgradeweapon": 1
+}

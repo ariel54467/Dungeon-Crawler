@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "goblin_walk_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 4,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "c40fcf61-e841-40d7-a967-e9f332282f33"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "a25702aa-9959-4d35-b6e3-3c6d37bc06a2"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "f0092589-e3cc-43c0-99ec-d47acddc252a"
+            }
+          },
+          {
+            "frame": 0.75,
+            "value": {
+              "__uuid__": "a25702aa-9959-4d35-b6e3-3c6d37bc06a2"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,65 @@
+{
+  "sword_lvl_1": {
+    "attack": 5,
+    "attackCooldown": 0.5,
+    "attackDuration": 0.2,
+    "color": "#FFFFFF",
+    "animPrefix": "sword"
+  },
+  "sword_lvl_2": {
+    "attack": 10,
+    "attackCooldown": 0.4,
+    "attackDuration": 0.2,
+    "color": "#ff00fb",
+    "animPrefix": "sword"
+  },
+  "sword_lvl_3": {
+    "attack": 15,
+    "attackCooldown": 0.3,
+    "attackDuration": 0.2,
+    "color": "#FFD700",
+    "animPrefix": "sword"
+  },
+  "spear_lvl_1": {
+    "attack": 15,
+    "attackCooldown": 0.4,
+    "attackDuration": 0.3,
+    "color": "#FFFFFF",
+    "animPrefix": "spear"
+  },
+  "spear_lvl_2": {
+    "attack": 20,
+    "attackCooldown": 0.4,
+    "attackDuration": 0.3,
+    "color": "#FF0000",
+    "animPrefix": "spear"
+  },
+  "spear_lvl_3": {
+    "attack": 25,
+    "attackCooldown": 0.4,
+    "attackDuration": 0.3,
+    "color": "#FFD700",
+    "animPrefix": "spear"
+  },
+  "axe_lvl_1": {
+    "attack": 10,
+    "attackCooldown": 0.7,
+    "attackDuration": 0.3,
+    "color": "#FFFFFF",
+    "animPrefix": "axe"
+  },
+  "axe_lvl_2": {
+    "attack": 15,
+    "attackCooldown": 0.7,
+    "attackDuration": 0.3,
+    "color": "#FF0000",
+    "animPrefix": "axe"
+  },
+  "axe_lvl_3": {
+    "attack": 20,
+    "attackCooldown": 0.7,
+    "attackDuration": 0.3,
+    "color": "#FFD700",
+    "animPrefix": "axe"
+  }
+}

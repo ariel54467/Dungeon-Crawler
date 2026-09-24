@@ -1,0 +1,100 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "sword_idle_right",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.5,
+  "sample": 2,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": []
+      }
+    },
+    "paths": {
+      "Body": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "b2239cc5-6c33-4d50-ba1d-a493608dd794"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "68bb22de-f5f1-4239-8699-b9f05c30dfcf"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Hair": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "5fe526b2-dc06-4430-a5e9-570059a704da"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "99e32077-54c6-4a66-90ed-6a2d8b5eb3d4"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Clothes": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "37b48ce8-b473-4d8b-9d6d-c6c2265be297"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "99aeb1dc-a7f1-428c-bb09-1cceb44c5d76"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Weapon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "d0c1365e-8045-4933-bbda-32438c2c997d"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "d0c1365e-8045-4933-bbda-32438c2c997d"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

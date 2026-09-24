@@ -1,0 +1,83 @@
+{
+    "activeFile": "DungeonLvl1Map.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "DungeonBossMap.tmx": {
+            "scale": 0.2942361111111111,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2900.7316497521833,
+                "y": 1508.99221147038
+            }
+        },
+        "DungeonLvl1Map.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 5524,
+                "y": 2768
+            }
+        },
+        "DungeonLvl1Map.tmx#castle interiors, prefab samples": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl1Map.tmx#iconic homestead ruins v1": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl2Map.tmx": {
+            "scale": 0.17466145833333332,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 5350.350380199792,
+                "y": 1551.5729834501267
+            }
+        },
+        "DungeonLvl2Map.tmx#castle interiors": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl2Map.tmx#castle interiors, prefab samples": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl2Map.tmx#iconic castle": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl2Map.tmx#iconic homestead ruins v1": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl2Map.tmx#iconic interiors": {
+            "scaleInDock": 1
+        },
+        "DungeonLvl2Map.tmx#iconic_homestead v1": {
+            "scaleInDock": 1
+        },
+        "DungeonTileset1.tsx": {
+            "scaleInDock": 1
+        },
+        "DungeonTileset2.tsx": {
+            "scaleInDock": 1
+        },
+        "castle interiors, prefab samples.tsx": {
+            "scaleInDock": 1
+        },
+        "iconic interiors.tsx": {
+            "scaleInDock": 1
+        }
+    },
+    "openFiles": [
+        "DungeonBossMap.tmx",
+        "DungeonLvl1Map.tmx",
+        "DungeonLvl2Map.tmx"
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "DungeonBossMap.tmx",
+        "DungeonLvl2Map.tmx",
+        "DungeonLvl1Map.tmx"
+    ]
+}

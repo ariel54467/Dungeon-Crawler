@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "036bfe4d-9742-4457-8e80-2f17b237e757",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "hair_atk_melee_p1b": {
+      "ver": "1.0.6",
+      "uuid": "b49bec55-91b0-4c95-96ab-2aa821047c12",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "036bfe4d-9742-4457-8e80-2f17b237e757",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 5.5,
+      "offsetY": 35,
+      "trimX": 25,
+      "trimY": 9,
+      "width": 2009,
+      "height": 40,
+      "rawWidth": 2048,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

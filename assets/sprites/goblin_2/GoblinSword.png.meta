@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "b2e8776d-e872-431f-b649-f8d0575e7deb",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 256,
+  "height": 197,
+  "platformSettings": {},
+  "subMetas": {
+    "GoblinSword": {
+      "ver": "1.0.6",
+      "uuid": "2b2ba45e-7671-4c80-be17-786f8b42cef0",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "b2e8776d-e872-431f-b649-f8d0575e7deb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2.5,
+      "offsetY": -0.5,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 247,
+      "height": 194,
+      "rawWidth": 256,
+      "rawHeight": 197,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "1f910f7e-80e9-45c7-ae62-0ece78f37782",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "sword_atk_melee_p1": {
+      "ver": "1.0.6",
+      "uuid": "53ed71de-22c7-4864-9fc2-9a9442477f5e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "1f910f7e-80e9-45c7-ae62-0ece78f37782",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 12.5,
+      "offsetY": 37,
+      "trimX": 28,
+      "trimY": 1,
+      "width": 2017,
+      "height": 52,
+      "rawWidth": 2048,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

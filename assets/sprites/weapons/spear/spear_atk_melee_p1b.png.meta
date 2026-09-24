@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "ed2c8cf4-07ed-4e1f-90b6-444ba1ad953a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "spear_atk_melee_p1b": {
+      "ver": "1.0.6",
+      "uuid": "713abb5c-3e3c-4bcb-b73a-329c514964e7",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "ed2c8cf4-07ed-4e1f-90b6-444ba1ad953a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 2,
+      "offsetY": 34,
+      "trimX": 11,
+      "trimY": 0,
+      "width": 2030,
+      "height": 60,
+      "rawWidth": 2048,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

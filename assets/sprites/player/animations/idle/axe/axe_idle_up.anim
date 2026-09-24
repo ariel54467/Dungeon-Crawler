@@ -1,0 +1,113 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "axe_idle_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.5,
+  "sample": 2,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "57868bd6-9232-4874-a0f1-173817df4843"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "035c908b-1b5a-4bcc-bbc2-b3653e1c2615"
+            }
+          }
+        ]
+      }
+    },
+    "paths": {
+      "Body": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "57868bd6-9232-4874-a0f1-173817df4843"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "035c908b-1b5a-4bcc-bbc2-b3653e1c2615"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Hair": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "a350f519-0076-432a-a919-56889a21517b"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "09333897-166d-4f90-a48b-44a13b4b03dd"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Body/Clothes": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "4e2d28b6-9b1e-483e-bf34-491bc6a052b2"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "7114bee6-7655-4a9c-bc10-f35ebc5138f1"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "Weapon": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "46fd3f53-7ca8-4071-97d6-2af8ba04bfc1"
+                }
+              },
+              {
+                "frame": 1,
+                "value": {
+                  "__uuid__": "46fd3f53-7ca8-4071-97d6-2af8ba04bfc1"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

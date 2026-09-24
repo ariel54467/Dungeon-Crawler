@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "363f96b5-32cf-4a5d-9843-87d14b5c42e0",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "player_atk_melee_p1b": {
+      "ver": "1.0.6",
+      "uuid": "2f6f59d1-740b-4d1b-a9df-801d03723ecc",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "363f96b5-32cf-4a5d-9843-87d14b5c42e0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 6.5,
+      "offsetY": 33.5,
+      "trimX": 24,
+      "trimY": 12,
+      "width": 2013,
+      "height": 37,
+      "rawWidth": 2048,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

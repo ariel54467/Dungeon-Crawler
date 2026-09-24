@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "e7b8d149-9f9b-48cf-83d3-38182c17ec37",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1024,
+  "height": 1536,
+  "platformSettings": {},
+  "subMetas": {
+    "player_preview_box_sky_clouds_rocks_transparent": {
+      "ver": "1.0.6",
+      "uuid": "99580e6c-b238-4b53-bb05-d1b9e5ec63c5",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "e7b8d149-9f9b-48cf-83d3-38182c17ec37",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": 1,
+      "trimX": 52,
+      "trimY": 147,
+      "width": 923,
+      "height": 1240,
+      "rawWidth": 1024,
+      "rawHeight": 1536,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

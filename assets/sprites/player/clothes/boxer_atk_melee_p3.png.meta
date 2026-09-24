@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "e012fae0-de18-4a87-9cda-9ea88ac58602",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 2048,
+  "height": 128,
+  "platformSettings": {},
+  "subMetas": {
+    "boxer_atk_melee_p3": {
+      "ver": "1.0.6",
+      "uuid": "544b126f-35a8-49c7-a109-9fa2ad24172d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "e012fae0-de18-4a87-9cda-9ea88ac58602",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": -4,
+      "trimX": 27,
+      "trimY": 31,
+      "width": 1997,
+      "height": 74,
+      "rawWidth": 2048,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

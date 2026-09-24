@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "c07b0d96-1625-4e17-8c30-c40e7f2d99f2",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "heal_potion": {
+      "ver": "1.0.6",
+      "uuid": "9ffb7fa1-72ad-4a57-b276-d7e69718e658",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "c07b0d96-1625-4e17-8c30-c40e7f2d99f2",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 7,
+      "trimY": 2,
+      "width": 18,
+      "height": 27,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

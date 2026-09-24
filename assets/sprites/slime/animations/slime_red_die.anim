@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "slime_red_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 5,
+  "speed": 5,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "3f4e42b8-54a1-48e8-b2ff-e461611c0288"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "16a117aa-1fcb-4d0d-875e-e62e663f65b1"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "5a592a11-a47a-4d19-bbd5-549f6d56b045"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "bd3d05e6-04d7-4d7f-a19b-837d279d5813"
+            }
+          },
+          {
+            "frame": 0.8,
+            "value": {
+              "__uuid__": "0e38bd2a-8ba7-446e-ab96-eabf385b6946"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

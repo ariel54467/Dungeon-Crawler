@@ -1,0 +1,44 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "slime_red_idle",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {},
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "b51fb3f5-23d4-44e6-9e73-30768ae33fd4"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "30e7fb8f-adaa-460a-9ea1-455be6d41fcc"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "b6cea5d1-59e0-44fc-ac1a-c421c15c43a3"
+            }
+          },
+          {
+            "frame": 0.7,
+            "value": {
+              "__uuid__": "f6cd7abc-2250-4523-940b-3faea6590cea"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
