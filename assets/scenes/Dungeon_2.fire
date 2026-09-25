@@ -3717,7 +3717,7 @@
       "ctor": "Float64Array",
       "array": [
         -224.587,
-        24.473,
+        40,
         0,
         0,
         0,
@@ -4191,7 +4191,7 @@
         "__id__": 109
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 112
@@ -4223,7 +4223,7 @@
       "ctor": "Float64Array",
       "array": [
         -224.587,
-        -45.746,
+        -18,
         0,
         0,
         0,
@@ -4725,7 +4725,7 @@
       "ctor": "Float64Array",
       "array": [
         -125.8,
-        25.3,
+        40,
         0,
         0,
         0,
@@ -4830,7 +4830,7 @@
       "__id__": 74
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 119
@@ -4865,7 +4865,7 @@
       "ctor": "Float64Array",
       "array": [
         -125.8,
-        -45.811,
+        -18,
         0,
         0,
         0,
@@ -5006,7 +5006,7 @@
       "ctor": "Float64Array",
       "array": [
         -153.441,
-        -61.018,
+        -92,
         0,
         0,
         0,
@@ -5412,7 +5412,7 @@
       "ctor": "Float64Array",
       "array": [
         -154.101,
-        -24.663,
+        -52,
         0,
         0,
         0,
@@ -7979,11 +7979,13 @@
     "chaseRadius": 1000,
     "attackRadius": 80,
     "speed": 30,
-    "chaseSpeed": 15,
+    "chaseSpeed": 30,
     "damage": 15,
     "attackCooldown": 2,
     "attackDuration": 0.1,
-    "_id": "3e7Dy3swVCH62CfDeN5kej"
+    "_id": "3e7Dy3swVCH62CfDeN5kej",
+    "attackWindup": 0.6,
+    "knockbackSpeed": 0
   },
   {
     "__type__": "dc5e0SG3+NOEapUI42dm+Hu",
@@ -8818,7 +8820,7 @@
         "__id__": 233
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 251

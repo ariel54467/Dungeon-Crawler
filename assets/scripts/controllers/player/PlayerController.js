@@ -1,3 +1,5 @@
+const Appearance = require('Appearance');
+
 cc.Class({
   extends: cc.Component,
 
@@ -17,6 +19,8 @@ cc.Class({
     this.dir = cc.v2();
     this.lastDir = cc.v2(0, -1);
     this._keys = {};
+    // Set by TouchControls on touch screens.
+    this.touchInput = null;
     this.currentAnim = '';
     this._hurt = false;
     this._attacking = false;
@@ -24,6 +28,8 @@ cc.Class({
     this.stats = this.getComponent('PlayerStats');
     this.anim = this.getComponent(cc.Animation);
     this.body = this.getComponent(cc.RigidBody);
+    // Apply the chosen look first so the hurt flash returns to the player's skin tone.
+    Appearance.apply(this.node, Appearance.load());
     this._bodyColor = this.bodySprite ? this.bodySprite.node.color.clone() : cc.Color.WHITE;
     this._disableHitboxes();
     this.node.on('playerDamaged', this._onHurt, this);
@@ -141,7 +147,7 @@ cc.Class({
   },
 
   _tryAttack() {
-    if (this.manager && this.manager.isPaused) return;
+    if (this.manager && (this.manager.isPaused || this.manager._transitioning)) return;
     if (!this.stats || !this.stats.ready || this.stats._dead || this._hurt || this._attacking || this._cooldown > 0) return;
     const direction = this._directionName(this.lastDir);
     const clip = this.stats.animPrefix + '_attack_' + direction;
@@ -179,7 +185,8 @@ cc.Class({
     if (!this.stats || !this.stats.ready || this.stats._dead || this._hurt || this._attacking) return;
     const key = cc.macro.KEY;
     const held = code => this._keys[code] ? 1 : 0;
-    this.dir = cc.v2(
+    const touch = this.touchInput;
+    this.dir = touch && (touch.x || touch.y) ? cc.v2(touch.x, touch.y) : cc.v2(
       Math.max(held(key.d), held(key.right)) - Math.max(held(key.a), held(key.left)),
       Math.max(held(key.w), held(key.up)) - Math.max(held(key.s), held(key.down))
     );
@@ -187,7 +194,9 @@ cc.Class({
     const velocity = moving ? this.dir.normalize().mul(this.stats.speed) : cc.v2();
     if (moving) this.lastDir = this.dir.normalize();
     if (this.body) this.body.linearVelocity = velocity;
-    if (held(key.space)) this._tryAttack();
+    const tapped = touch && touch.tapped;
+    if (touch) touch.tapped = false;
+    if (held(key.space) || tapped || (touch && touch.attack)) this._tryAttack();
     if (!this._attacking) {
       if (moving) this.playWalkAnim(velocity);
       else this.playIdleAnim();

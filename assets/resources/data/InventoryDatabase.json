@@ -27,7 +27,7 @@
     "id": 4,
     "name": "armor",
     "type": "armor",
-    "icon": "Inventory/heal_potion",
+    "icon": "Inventory/armor",
     "level": "lvl_1",
     "locked": true
   },

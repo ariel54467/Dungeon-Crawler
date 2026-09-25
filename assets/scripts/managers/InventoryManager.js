@@ -44,6 +44,8 @@ cc.Class({
     if (this.exitButton) this.exitButton.on('click', this.hideInventory, this);
     if (this.useButtonNode) this.useButtonNode.node.on('click', this.onUseButtonClick, this);
     if (this.upgradeButton) this.upgradeButton.node.on('click', this.onUpgradeClick, this);
+    // Clicking the worn armor takes it off.
+    if (this.armorSlot) this.armorSlot.on('click', this.unequipArmor, this);
     if (this.playerNode) this.playerNode.on('playerStatsLoaded', this._initialize, this);
     cc.resources.load('data/InventoryDatabase', cc.JsonAsset, (error, asset) => {
       if (!cc.isValid(this.node)) return;
@@ -88,6 +90,16 @@ cc.Class({
     if (event.keyCode === cc.macro.KEY.i) this.toggleGeneralInventory();
     if (event.keyCode === cc.macro.KEY.e) this.toggleWeaponInventory();
     if (event.keyCode === cc.macro.KEY.escape) this.hideInventory();
+  },
+
+  _canInteract() {
+    const manager = cc.director.getScene().getComponentInChildren('GameManager');
+    return this.ready && this.playerStats && this.playerStats.ready && !this.playerStats._dead && !(manager && (manager._transitioning || manager._won));
+  },
+
+  _refreshPauseState() {
+    const manager = cc.director.getScene().getComponentInChildren('GameManager');
+    if (manager) manager.refreshPauseState();
   },
 
   setupUI() {
@@ -157,6 +169,7 @@ cc.Class({
   },
 
   onUseButtonClick() {
+    if (!this._canInteract()) return;
     const index = this.selectedItemIndex;
     const item = this.items[index];
     const def = this._definition(item);
@@ -177,27 +190,32 @@ cc.Class({
   hideInventory() {
     if (this.generalInventory) this.generalInventory.active = false;
     if (this.weaponInventory) this.weaponInventory.active = false;
+    this._refreshPauseState();
   },
 
   toggleGeneralInventory() {
-    if (!this.ready || !this.generalInventory) return;
+    if (!this._canInteract() || !this.generalInventory) return;
     this.generalInventory.active = !this.generalInventory.active;
     if (this.weaponInventory) this.weaponInventory.active = false;
     if (this.playerController) this.playerController.resetInput();
+    this._refreshPauseState();
   },
 
   toggleWeaponInventory() {
-    if (!this.ready || !this.weaponInventory) return;
+    if (!this._canInteract() || !this.weaponInventory) return;
     this.weaponInventory.active = !this.weaponInventory.active;
     if (this.generalInventory) this.generalInventory.active = false;
+    // Hidden grids are not laid out, so line the rows up once the panel is visible.
+    if (this.weaponInventory.active) this._refreshEquipmentState();
     this.updateUpgradeUI();
     if (this.playerController) this.playerController.resetInput();
+    this._refreshPauseState();
   },
 
   unequipArmor() {
+    if (!this._canInteract()) return;
     this.playerStats.equippedArmor = '';
-    const icon = this._getChildComponent(this.armorSlot, 'Icon', cc.Sprite);
-    if (icon) icon.spriteFrame = null;
+    this._updateArmorIcon();
     this._save();
   },
 
@@ -205,6 +223,7 @@ cc.Class({
     if (!this.slotPrefab) return;
     if (this.weaponGrid) this.weaponGrid.removeAllChildren();
     if (this.armorGrid) this.armorGrid.removeAllChildren();
+    this._equipSlots = [];
     Object.values(this.itemDatabase).forEach(item => {
       const grid = item.type === 'weapon' ? this.weaponGrid : item.type === 'armor' ? this.armorGrid : null;
       if (!grid) return;
@@ -219,19 +238,93 @@ cc.Class({
         const icon = this._getChildComponent(node, 'Icon', cc.Sprite);
         if (icon) icon.spriteFrame = sprite;
       });
+      this._equipSlots.push({ node, item, marker: this._createEquippedMarker(node) });
       buttonNode.on('click', () => {
-        if (item.locked) return;
         if (item.type === 'weapon') this.equipWeapon(item.name);
-        else {
-          this.playerStats.equippedArmor = this.playerStats.equippedArmor ? '' : item.name;
-          this._save();
-        }
+        else this.toggleArmor(item.name);
       }, this);
     });
+    this._createArmorHint();
     this._updateEquippedIcon();
+    this._updateArmorIcon();
+  },
+
+  toggleArmor(name) {
+    const item = this.itemDatabase && this.itemDatabase[name];
+    if (!this._canInteract() || !item || item.type !== 'armor' || item.locked) return false;
+    this.playerStats.equippedArmor = this.playerStats.equippedArmor === name ? '' : name;
+    this._updateArmorIcon();
+    this._save();
+    return true;
+  },
+
+  _createEquippedMarker(slot) {
+    // A frame drawn over the slot; tinting the slot itself would be undone by the button's color transitions.
+    const node = new cc.Node('Equipped Marker');
+    slot.addChild(node);
+    node.zIndex = 10;
+    const frame = node.addComponent(cc.Graphics);
+    frame.lineWidth = 2;
+    frame.strokeColor = cc.color(255, 244, 150);
+    frame.rect(-18, -18, 36, 36);
+    frame.stroke();
+    node.active = false;
+    return node;
+  },
+
+  _createArmorHint() {
+    if (!this.armorGrid || this._armorHint) return;
+    const node = new cc.Node('Armor Hint');
+    this.armorGrid.parent.addChild(node);
+    node.setAnchorPoint(0, 0.5);
+    node.color = cc.color(80, 40, 10);
+    const label = node.addComponent(cc.Label);
+    label.fontSize = 11;
+    label.lineHeight = 13;
+    label.horizontalAlign = cc.Label.HorizontalAlign.LEFT;
+    label.overflow = cc.Label.Overflow.SHRINK;
+    label.enableWrapText = false;
+    node.setContentSize(96, 16);
+    this._armorHint = label;
+  },
+
+  _refreshEquipmentState() {
+    const weapon = this.playerStats.weapon.split('_lvl_')[0];
+    (this._equipSlots || []).forEach(({ node, item, marker }) => {
+      if (!cc.isValid(marker)) return;
+      marker.active = item.type === 'weapon' ? item.name === weapon : item.name === this.playerStats.equippedArmor;
+    });
+    if (!this._armorHint || !cc.isValid(this._armorHint.node)) return;
+    const armor = Object.values(this.itemDatabase).find(item => item.type === 'armor');
+    const slot = (this._equipSlots || []).find(entry => entry.item === armor);
+    const bonus = '+' + this.playerStats.armorDefense + ' DEF';
+    this._armorHint.string = !armor ? ''
+      : armor.locked ? 'Clear a dungeon to unlock'
+      : this.playerStats.equippedArmor === armor.name ? 'Worn: ' + bonus
+      : 'Click to wear: ' + bonus;
+    if (slot) {
+      this._alignArmorRow();
+      const right = this.armorGrid.x + (slot.node.x + slot.node.width * (1 - slot.node.anchorX)) * this.armorGrid.scaleX;
+      this._armorHint.node.setPosition(right + 8, this.armorGrid.y);
+    }
+  },
+
+  _alignArmorRow() {
+    // Both grids shrink to fit their items; start the armor row under the first weapon.
+    const relayout = grid => {
+      const layout = grid && grid.getComponent(cc.Layout);
+      if (layout) layout.updateLayout();
+    };
+    relayout(this.weaponGrid);
+    if (this.weaponGrid) {
+      this.armorGrid.anchorX = 0;
+      this.armorGrid.x = this.weaponGrid.x - this.weaponGrid.width * this.weaponGrid.anchorX;
+    }
+    relayout(this.armorGrid);
   },
 
   equipWeapon(name) {
+    if (!this._canInteract()) return false;
     const item = this.itemDatabase[name];
     if (!item || item.locked || !this.playerController || !this.playerController._equipWeapon(name)) return false;
     this._updateEquippedIcon();
@@ -243,10 +336,24 @@ cc.Class({
     const item = this.itemDatabase[this.playerStats.weapon.split('_lvl_')[0]];
     if (!item) return;
     this.equippedWeapon = item;
+    this._refreshEquipmentState();
     this.loadSprite(item.icon, sprite => {
+      if (this.equippedWeapon !== item) return;
       const icon = this._getChildComponent(this.weaponSlot, 'Icon', cc.Sprite);
       if (icon) icon.spriteFrame = sprite;
       if (this.weaponButton) this.weaponButton.spriteFrame = sprite;
+    });
+  },
+
+  _updateArmorIcon() {
+    this._refreshEquipmentState();
+    const icon = this._getChildComponent(this.armorSlot, 'Icon', cc.Sprite);
+    if (!icon) return;
+    icon.spriteFrame = null;
+    const item = this.itemDatabase[this.playerStats.equippedArmor];
+    if (!item) return;
+    this.loadSprite(item.icon, sprite => {
+      if (cc.isValid(icon.node) && this.playerStats.equippedArmor === item.name) icon.spriteFrame = sprite;
     });
   },
 
@@ -272,7 +379,7 @@ cc.Class({
 
   onUpgradeClick() {
     this.updateUpgradeUI();
-    if (!this.ready || this.upgradeLevel >= this.maxUpgradeLevel || this.money < this.upgradeCost || (this.playerController && this.playerController._attacking)) return;
+    if (!this._canInteract() || this.upgradeLevel >= this.maxUpgradeLevel || this.money < this.upgradeCost || (this.playerController && this.playerController._attacking)) return;
     this.playerStats.money -= this.upgradeCost;
     this.upgradeLevel++;
     this.playerStats.upgradeLevel = this.upgradeLevel;
@@ -297,6 +404,7 @@ cc.Class({
   },
 
   syncPlayerState() {
+    if (!this.ready) return;
     this.playerStats.savedItems = this.items.filter(Boolean).map(item => ({
       name: this._definition(item).name, quantity: item.quantity,
     })).concat(this.playerStats.savedItems.filter(item => this.itemDatabase[item.name] && this.itemDatabase[item.name].type === 'armor'));

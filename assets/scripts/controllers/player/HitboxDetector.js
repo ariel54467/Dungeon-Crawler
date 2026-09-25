@@ -14,10 +14,11 @@ cc.Class({
   },
 
   onCollisionEnter(other) {
-    if (!this.stats || this.stats._dead || other.node.group !== 'enemy') return;
+    if (!this.stats || !this.stats.ready || this.stats._dead || other.node.group !== 'enemy') return;
+    if (this.stats.manager && (this.stats.manager.isPaused || this.stats.manager._transitioning)) return;
     const target = other.node.getComponent('EnemyStats');
     if (!target || this._hitTargets.has(target)) return;
     this._hitTargets.add(target);
-    target.takeDamage(this.stats.attack);
+    target.takeDamage(this.stats.attack, this.stats.node);
   },
 });

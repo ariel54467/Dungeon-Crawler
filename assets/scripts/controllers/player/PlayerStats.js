@@ -6,6 +6,7 @@ cc.Class({
     speed: 110, weaponMastery: 1, attack: 5, attackCooldown: 0.5,
     attackDuration: 0.2, color: '#FFFFFF', animPrefix: 'sword',
     weapon: 'sword_lvl_1',
+    armorDefense: { default: 3, tooltip: 'Defense added while armor is equipped' },
   },
 
   onLoad() {
@@ -34,21 +35,25 @@ cc.Class({
   },
 
   _loadState(state) {
+    if (!state || typeof state !== 'object' || Array.isArray(state)) state = {};
     const number = (value, fallback, min) => typeof value === 'number' && isFinite(value) ? Math.max(min, value) : fallback;
+    const integer = (value, fallback, min) => Math.floor(number(value, fallback, min));
     this.maxHp = number(state.maxhp, number(state.maxHp, 100, 1), 1);
     this.hp = Math.min(this.maxHp, number(state.hp, this.maxHp, 0));
+    // Older saves can contain the health recorded before the respawn was saved.
+    if (this.hp === 0) this.hp = this.maxHp;
     this.defense = number(state.defense, 0, 0);
     this.exp = number(state.exp, 0, 0);
-    this.level = number(state.level, 1, 1);
+    this.level = integer(state.level, 1, 1);
     this.money = number(state.money, 0, 0);
-    this.lvlPoint = number(state.xpPoint, 0, 0);
-    this.healthskill = number(state.healthskill, 1, 1);
-    this.speedskill = number(state.speedskill, 1, 1);
+    this.lvlPoint = integer(state.xpPoint, 0, 0);
+    this.healthskill = integer(state.healthskill, 1, 1);
+    this.speedskill = integer(state.speedskill, 1, 1);
     this.speed = number(state.speed, 110 + (this.speedskill - 1) * 10, 1);
-    this.weaponMastery = Math.min(3, number(state.weaponmastery, number(state.weaponMastery, 1, 1), 1));
-    this.upgradeLevel = Math.min(9, number(state.upgradeweapon, 1, 1));
-    this.savedItems = Array.isArray(state.items) ? state.items.filter(item => item && typeof item.name === 'string' && item.quantity > 0).map(item => ({ name: item.name, quantity: Math.floor(item.quantity) })) : [];
-    this.equippedArmor = state.equippedArmor === 'armor' ? 'armor' : '';
+    this.weaponMastery = Math.min(3, integer(state.weaponmastery, integer(state.weaponMastery, 1, 1), 1));
+    this.upgradeLevel = Math.min(9, integer(state.upgradeweapon, 1, 1));
+    this.savedItems = Array.isArray(state.items) ? state.items.filter(item => item && typeof item.name === 'string' && typeof item.quantity === 'number' && isFinite(item.quantity) && item.quantity >= 1).map(item => ({ name: item.name, quantity: Math.floor(item.quantity) })) : [];
+    this.equippedArmor = state.equippedArmor === 'armor' && this.savedItems.some(item => item.name === 'armor') ? 'armor' : '';
     this.weapon = typeof state.weapon === 'string' ? state.weapon : 'sword_lvl_1';
     cc.resources.load('data/weapons', cc.JsonAsset, (error, asset) => {
       if (!cc.isValid(this.node)) return;
@@ -61,6 +66,10 @@ cc.Class({
       this.ready = true;
       this.node.emit('playerStatsLoaded');
     });
+  },
+
+  start() {
+    this.manager = cc.director.getScene().getComponentInChildren('GameManager');
   },
 
   weaponLevel(name) {
@@ -87,15 +96,17 @@ cc.Class({
   },
 
   update(dt) {
+    if (this.manager && (this.manager.isPaused || this.manager._transitioning)) return;
     this._invulnerable = Math.max(0, this._invulnerable - dt);
     this._defenseTime = Math.max(0, this._defenseTime - dt);
   },
 
   takeDamage(amount) {
-    if (!this.ready || this._dead || this._invulnerable > 0 || !isFinite(amount) || amount <= 0) return false;
-    const defense = this.defense + (this.equippedArmor ? 3 : 0) + (this._defenseTime > 0 ? 5 : 0);
-    const damage = Math.max(0, amount - defense);
-    if (!damage) return false;
+    if (this.manager && (this.manager.isPaused || this.manager._transitioning)) return false;
+    if (!this.ready || this._dead || this._invulnerable > 0 || typeof amount !== 'number' || !isFinite(amount) || amount <= 0) return false;
+    const defense = this.defense + (this.equippedArmor ? this.armorDefense : 0) + (this._defenseTime > 0 ? 5 : 0);
+    // Defense softens hits but never makes the player immune to weak enemies.
+    const damage = Math.max(1, Math.round(amount - defense));
     this.hp = Math.max(0, this.hp - damage);
     this._invulnerable = 0.6;
     this.node.emit('playerDamaged', damage);
@@ -110,9 +121,10 @@ cc.Class({
   },
 
   heal(amount) {
-    if (this._dead || this.hp >= this.maxHp || amount <= 0) return false;
+    if (!this.ready || this._dead || this.hp >= this.maxHp || typeof amount !== 'number' || !isFinite(amount) || amount <= 0) return false;
+    const healed = Math.min(this.maxHp - this.hp, amount);
     this.hp = Math.min(this.maxHp, this.hp + amount);
-    this.node.emit('playerHealed', amount);
+    this.node.emit('playerHealed', healed);
     return true;
   },
 
@@ -131,14 +143,16 @@ cc.Class({
   },
 
   gainExp(amount) {
-    if (this._dead || amount <= 0) return;
-    this.exp += amount;
-    while (this.exp >= 100) {
-      this.exp -= 100;
-      this.level++;
-      this.lvlPoint++;
-      this.maxHp += 20;
-      this.defense++;
+    if (!this.ready || this._dead || typeof amount !== 'number' || !isFinite(amount) || amount <= 0 || !isFinite(this.exp + amount)) return;
+    const total = this.exp + amount;
+    const levels = Math.floor(total / 100);
+    this.exp = total % 100;
+    // Apply multiple levels together so a large saved XP value cannot stall play.
+    if (levels > 0) {
+      this.level += levels;
+      this.lvlPoint += levels;
+      this.maxHp += levels * 20;
+      this.defense += levels;
       this.hp = this.maxHp;
       this.onWeaponChanged(this.weapon);
       this.node.emit('levelUp', this.level);

@@ -214,6 +214,9 @@
       "__id__": 3
     },
     "_enabled": true,
+    "playtime": 0,
+    "killcount": 0,
+    "deathcount": 0,
     "_id": "1fGnnCOhJF3LxxaCHR0AV9"
   },
   {
@@ -1543,10 +1546,13 @@
     "_enabled": true,
     "maxHp": 100,
     "hp": 100,
+    "defense": 0,
     "exp": 0,
     "level": 1,
     "money": 0,
     "lvlPoint": 0,
+    "healthskill": 1,
+    "speedskill": 1,
     "dungeonLvl": 0,
     "speed": 200,
     "weaponMastery": 1,
@@ -1556,6 +1562,7 @@
     "color": "#FFFFFF",
     "animPrefix": "",
     "weapon": "sword_lvl_1",
+    "armorDefense": 3,
     "_id": "92LnzPp79EVKeHW/W0W/c4"
   },
   {

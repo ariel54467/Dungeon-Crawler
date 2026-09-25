@@ -1,8 +1,10 @@
 {
-  "title": "FinalProject_01",
+  "title": "DungeonCrawler",
   "packageName": "org.cocos2d.demo",
   "startScene": "5611bd4d-d8c8-42f7-ab73-9c3ba177f273",
-  "excludeScenes": [],
+  "excludeScenes": [
+    "169c0b65-0d00-471e-a48c-609572c9f07d"
+  ],
   "orientation": {
     "landscapeRight": true,
     "landscapeLeft": true,

@@ -80,23 +80,29 @@ cc.Class({
     };
   },
 
+  start() {
+    // Open on the player instead of sweeping across the map from the scene origin.
+    if (this.target && this.bounds) this._moveTo(this._clamp(this._targetPosition()));
+  },
+
   update(dt) {
     if (!this.target || !this.bounds) return;
-
-    let targetWorldPos = this.target.convertToWorldSpaceAR(cc.Vec2.ZERO);
-    let targetLocalPos = this.node.parent.convertToNodeSpaceAR(targetWorldPos);
-    targetLocalPos = targetLocalPos.add(this.offset);
-
     // Smooth follow
-    let newPos = this.node.position.lerp(targetLocalPos, Math.min(1, this.followSpeed * dt));
+    const newPos = this.node.position.lerp(this._targetPosition(), Math.min(1, this.followSpeed * dt));
+    this._moveTo(this._clamp(newPos));
+  },
 
+  _targetPosition() {
+    const targetWorldPos = this.target.convertToWorldSpaceAR(cc.Vec2.ZERO);
+    return this.node.parent.convertToNodeSpaceAR(targetWorldPos).add(this.offset);
+  },
+
+  _clamp(newPos) {
     // Camera half-size
-    let camera = this.getComponent(cc.Camera);
+    const camera = this.getComponent(cc.Camera);
     const zoom = camera ? camera.zoomRatio : 1;
-    let halfWidth = cc.winSize.width / 2 / zoom;
-    let halfHeight = cc.winSize.height / 2 / zoom;
-
-    // Clamp to bounds
+    const halfWidth = cc.winSize.width / 2 / zoom;
+    const halfHeight = cc.winSize.height / 2 / zoom;
     newPos.x = this.bounds.right - this.bounds.left < halfWidth * 2 ? (this.bounds.left + this.bounds.right) / 2 : cc.misc.clampf(
       newPos.x,
       this.bounds.left + halfWidth,
@@ -107,15 +113,12 @@ cc.Class({
       this.bounds.bottom + halfHeight,
       this.bounds.top - halfHeight
     );
+    return newPos;
+  },
 
-    this.node.position = newPos;
-
-    if (this.followInventory) {
-      this.followInventory.setPosition(this.node.getPosition());
-    }
-
-    if (this.followUI) {
-      this.followUI.setPosition(this.node.getPosition());
-    }
+  _moveTo(position) {
+    this.node.position = position;
+    if (this.followInventory) this.followInventory.setPosition(position);
+    if (this.followUI) this.followUI.setPosition(position);
   },
 });

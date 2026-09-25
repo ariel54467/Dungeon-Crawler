@@ -974,13 +974,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>player.png</string>
+            <string>player_p1.png</string>
             <key>size</key>
             <string>{2048,128}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:0e3c7dc9feb72aedb13a5a947008cefd:c16976c05d7216cdea267ac7e69d186a:6f6c59c3c6b7e98e5fb22e47122cb74a$</string>
             <key>textureFileName</key>
-            <string>player.png</string>
+            <string>player_p1.png</string>
         </dict>
     </dict>
 </plist>

@@ -44,13 +44,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>TreasureChest1.png</string>
+            <string>TreasureChest2.png</string>
             <key>size</key>
             <string>{20,43}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:58dda31713129683ab97fb460506c7fb:023b90ee2306473a89b16eee2cfc743a:f546010c30dd84fd31a991b974b87b72$</string>
             <key>textureFileName</key>
-            <string>TreasureChest1.png</string>
+            <string>TreasureChest2.png</string>
         </dict>
     </dict>
 </plist>

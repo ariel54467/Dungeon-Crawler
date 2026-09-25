@@ -15,6 +15,7 @@ cc.Class({
 
   onCollisionEnter(other) {
     if (!this.controller || !this.controller.enabled || (this.controller.stats && this.controller.stats._dying) || other.node.group !== 'player') return;
+    if (this.controller.manager && (this.controller.manager.isPaused || this.controller.manager._transitioning)) return;
     const target = other.node.getComponent('PlayerStats');
     if (!target || this._hitTargets.has(target)) return;
     this._hitTargets.add(target);

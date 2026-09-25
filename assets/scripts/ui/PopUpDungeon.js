@@ -11,18 +11,55 @@ cc.Class({
 
   onLoad() {
     this.node.zIndex = 150;
+    this._panelScale = this.node.scale;
+    this._levelHandlers = [];
     [this.level1Button, this.level2Button, this.level3Button].forEach((button, i) => {
-      if (button) button.node.on('click', () => this.loadDungeonLevel(i + 1), this);
+      const handler = () => this.loadDungeonLevel(i + 1);
+      this._levelHandlers.push(handler);
+      if (button) button.node.on('click', handler, this);
     });
     if (this.closeButton) this.closeButton.node.on('click', this.onCloseClick, this);
     this.node.active = false;
   },
 
   onEnable() {
-    const camera = cc.find('Canvas/Main Camera');
-    if (camera) this.node.setPosition(camera.getPosition());
     this.loadProgress();
     this.initButtons();
+    this.lateUpdate();
+    cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+    this._refreshPauseState();
+  },
+
+  onDisable() {
+    cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+    this._refreshPauseState();
+  },
+
+  onDestroy() {
+    [this.level1Button, this.level2Button, this.level3Button].forEach((button, i) => {
+      if (button && cc.isValid(button.node)) button.node.off('click', this._levelHandlers[i], this);
+    });
+    if (this.closeButton && cc.isValid(this.closeButton.node)) this.closeButton.node.off('click', this.onCloseClick, this);
+  },
+
+  onKeyDown(event) {
+    if (event.keyCode === cc.macro.KEY.escape) this.onCloseClick();
+  },
+
+  _refreshPauseState() {
+    const scene = cc.director.getScene();
+    const manager = scene && scene.getComponentInChildren('GameManager');
+    if (manager) manager.refreshPauseState();
+  },
+
+  lateUpdate() {
+    const cameraNode = cc.find('Canvas/Main Camera');
+    if (!cameraNode) return;
+    this.node.setPosition(cameraNode.getPosition());
+    const camera = cameraNode.getComponent(cc.Camera);
+    const zoom = camera && camera.zoomRatio > 0 ? camera.zoomRatio : 1;
+    const fit = Math.min(1, cc.winSize.width / 520, cc.winSize.height / 520);
+    this.node.scale = this._panelScale * fit / zoom;
   },
 
   loadProgress() {
@@ -52,17 +89,33 @@ cc.Class({
   onCloseClick() { this.node.active = false; },
 
   loadDungeonLevel(level) {
-    if (level < 1 || level > 3 || (level > 1 && !this.dungeonProgress['level' + (level - 1) + 'Completed'])) return;
+    if (!Number.isInteger(level) || level < 1 || level > 3) return false;
+    this.loadProgress();
+    if (level > 1 && !this.dungeonProgress['level' + (level - 1) + 'Completed']) return false;
     const manager = cc.director.getScene().getComponentInChildren('GameManager');
-    if (!manager) return;
-    cc.sys.localStorage.setItem('currentDungeonLevel', String(level));
-    manager.changeScene('Dungeon_2');
+    if (!manager || manager._transitioning) return false;
+    try {
+      cc.sys.localStorage.setItem('currentDungeonLevel', String(level));
+    } catch (error) {
+      cc.warn('Could not save selected dungeon.', error);
+      manager.showMessage('Unable to save. Check browser storage and try again.');
+      return false;
+    }
+    return manager.changeScene('Dungeon_2');
   },
 
   completeLevel(level) {
-    if (level < 1 || level > 3) return;
-    this.dungeonProgress['level' + level + 'Completed'] = true;
-    cc.sys.localStorage.setItem('dungeonProgress', JSON.stringify(this.dungeonProgress));
+    if (!Number.isInteger(level) || level < 1 || level > 3) return false;
+    this.loadProgress();
+    const progress = Object.assign({}, this.dungeonProgress, { ['level' + level + 'Completed']: true });
+    try {
+      cc.sys.localStorage.setItem('dungeonProgress', JSON.stringify(progress));
+    } catch (error) {
+      cc.warn('Could not save dungeon progress.', error);
+      return false;
+    }
+    this.dungeonProgress = progress;
     this.initButtons();
+    return true;
   },
 });
